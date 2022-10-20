@@ -12,9 +12,10 @@ include '../query.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Repository TE Unsika - Dashboard</title>
 
     <!-- Custom fonts for this template-->
+    <link rel="icon" href="../img/logo_unsika.png">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -48,7 +49,7 @@ include '../query.php';
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="index.php?id=<?php echo $id ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -70,16 +71,16 @@ include '../query.php';
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Profile management</h6>
-                        <a class="collapse-item" href="profil.php">Lihat Profil</a>
-                        <a class="collapse-item" href="edit_profil.php">Ubah Profil</a>
+                        <h6 class="collapse-header">Profile Management</h6>
+                        <a class="collapse-item" href="profil.php?id=<?php echo $id ?>">Lihat Profil</a>
+                        <a class="collapse-item" href="edit_profil.php?id=<?php echo $id ?>">Ubah Profil</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="ubah_pw.php">
+                <a class="nav-link" href="ubah_pw.php?id=<?php echo $id ?>">
                 <i class="fas fa-key"></i>
                 <span>Ganti Password</span></a>
             </li>
@@ -94,20 +95,20 @@ include '../query.php';
 
             <!-- Nav Item - Artikel -->
             <li class="nav-item">
-                <a class="nav-link" href="artikel.php">
+                <a class="nav-link" href="artikel.php?id=<?php echo $id ?>">
                 <i class="fas fa-newspaper"></i>
                 <span>Artikel</span></a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="skripsi.php">
+                <a class="nav-link" href="skripsi.php?id=<?php echo $id ?>">
                 <i class="fas fa-graduation-cap"></i>
                     <span>Skripsi</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="dokeng.php">
+                <a class="nav-link" href="dokeng.php?id=<?php echo $id ?>">
                 <i class="fas fa-book"></i>
                     <span>Dokumen Engineering</span></a>
             </li>
