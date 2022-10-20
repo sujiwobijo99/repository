@@ -13,7 +13,7 @@ $conn = mysqli_connect($servername, $username, $password, $db_name);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-$query = mysqli_query($conn, "SELECT * FROM `post` ORDER BY `id`");
+$query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 1  ORDER BY `id`");
 ?>
 
 
@@ -27,10 +27,10 @@ $query = mysqli_query($conn, "SELECT * FROM `post` ORDER BY `id`");
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3" align="left">
-                        <a href="tambah_artikel.php?id=<?php echo $id ?>">    
+                        <!-- <a href="tambah_artikel.php?id=<?php echo $id ?>">    
                         <h6 class="m-0 font-weight-bold text-primary"><button  type="button" class="btn btn-primary" style="width:20vw"><i class="fas fa-plus-square"></i> Tambah Data</button>
                             </h6>
-                            </a>
+                            </a> -->
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -42,7 +42,7 @@ $query = mysqli_query($conn, "SELECT * FROM `post` ORDER BY `id`");
                                             <th>Penulis</th>
                                             <th>Tanggal Upload</th>
                                             <th>Staff Input</th>
-                                            <th>Aksi</th>
+                                            <th>Dokumen</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -52,7 +52,7 @@ $query = mysqli_query($conn, "SELECT * FROM `post` ORDER BY `id`");
                                             <th>Penulis</th>
                                             <th>Tanggal Upload</th>
                                             <th>Staff Input</th>
-                                            <th>Aksi</th>
+                                            <th>Dokumen</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -68,7 +68,7 @@ $query = mysqli_query($conn, "SELECT * FROM `post` ORDER BY `id`");
         <td><?php echo $data['staf_input']; ?></td>
         <td>
           <a href="post/<?php echo $data['path']; ?>"><button type="button" class="btn btn-success">Lihat</button></a>
-          <a href="upload/hapus.php?id=<?php echo $data['id']; ?>" onclick="return confirm ('Apakah anda benar ingin menghapus <?php echo $data['name']; ?> dari daftar file?')"><button type="button" class="btn btn-danger">Hapus</button></a>
+          <a href="hapus_post.php?id=1&id_post=<?php echo $data['id']."&jenis=". $data['jenis']; ?>" onclick="return confirm ('Apakah anda benar ingin menghapus <?php echo $data['judul']; ?> dari daftar Artikel?')"><button type="button" class="btn btn-danger">Hapus</button></a>
         </td>
       </tr>
     <?php } ?>
@@ -89,7 +89,7 @@ $query = mysqli_query($conn, "SELECT * FROM `post` ORDER BY `id`");
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                    <span>Copyright &copy; Aplikasi Pemrograman Komputer UNSIKA 2022</span>
                     </div>
                 </div>
             </footer>

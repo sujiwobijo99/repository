@@ -6,8 +6,8 @@ include 'template/header.php';
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Tambah Artikel</h1>
-    <form action="tambah_artikel_fcn.php" method="POST"  enctype="multipart/form-data">
+    <h1 class="h3 mb-4 text-gray-800">Tambah Dokumen Repository</h1>
+    <form action="tambah_post_fcn.php" method="POST"  enctype="multipart/form-data">
         <div class="row">
             <div> <input style="opacity:0" name="id" value="<?php echo $_GET['id'] ?>"></div>
             <div> <input style="opacity:0" name="role" value=""></div>
@@ -86,7 +86,7 @@ include 'template/header.php';
                                         </div>
                                     </div>
                                     <label class="col-sm-3
-                                    col-form-label mt-3"></label>
+                                    col-form-label"></label>
                                     <div class="col-sm-9">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -98,7 +98,7 @@ include 'template/header.php';
                                         </div>
                                     </div>
                                     <label class="col-sm-3
-                                    col-form-label mt-3"></label>
+                                    col-form-label"></label>
                                     <div class="col-sm-9">
                                     <div class="input-group">
                                         <div class="input-group-prepend">

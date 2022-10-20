@@ -112,6 +112,13 @@ include '../query.php';
                 <i class="fas fa-book"></i>
                     <span>Dokumen Engineering</span></a>
             </li>
+            
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tambah_post.php?id=<?php echo $id ?>">
+                <i class="fas fa-plus"></i>
+                    <span>Tambah Dokumen</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

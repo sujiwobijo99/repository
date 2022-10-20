@@ -41,7 +41,13 @@ $sql = "INSERT INTO `post`(`judul`, `penulis`, `kontibutor`, `jenis`, `penerbit`
 VALUES ('$judul', '$penulis', '$kontributor', '$jenis', '$penerbit', '$subjek', '$keyword', '$staf_input', '$file_name')";
 
 if (mysqli_query($conn, $sql)) {
-  header("Location: artikel.php?id=$id");
+  if ($jenis == 1) {  
+    header("Location: artikel.php?id=$id");
+  }else if ($jenis == 1) {
+    header("Location: skripsi.php?id=$id");
+  }else {
+    header("Location: dokeng.php?id=$id");
+  }
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
