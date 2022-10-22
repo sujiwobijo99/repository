@@ -37,7 +37,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `post`(`judul`, `penulis`, `kontibutor`, `jenis`, `penerbit`, `subjek`, `keyword`, `staf_input`, `path`)
+$sql = "INSERT INTO `post`(`judul`, `penulis`, `kontributor`, `jenis`, `penerbit`, `subjek`, `keyword`, `staf_input`, `path`)
 VALUES ('$judul', '$penulis', '$kontributor', '$jenis', '$penerbit', '$subjek', '$keyword', '$staf_input', '$file_name')";
 
 if (mysqli_query($conn, $sql)) {

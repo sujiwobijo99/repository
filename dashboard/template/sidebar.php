@@ -15,7 +15,7 @@ include '../query.php';
     <title>Repository TE Unsika - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link rel="icon" href="../img/logo_unsika.png">
+    <link rel="icon" href="../dashboard/img/logo_unsika.png"  type="image/x-icon">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"

@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Merge - Login</title>
+    <title>Repository TE Unsika - Login</title>
+    <link rel="icon" href="../dashboard/img/logo_unsika.png"  type="image/x-icon">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

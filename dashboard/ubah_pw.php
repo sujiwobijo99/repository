@@ -23,7 +23,7 @@ include "template/header.php";
                     </div>
                 </div>
                 <div> <input style="opacity:0" name="id" value="<?php echo $_GET['id'] ?>"></div>
-                <div> <input style="opacity:0" name="role" value="<?php echo $_GET['role'] ?>"></div>
+                <div> <input style="opacity:0" name="role" value=""></div>
                 <div class="form-group row justify-content-end">
                     <div class="col-sm-9">
                         <button type="submit" class="btn btn-primary" style="margin-top: -8vw;">Kirim</button>
