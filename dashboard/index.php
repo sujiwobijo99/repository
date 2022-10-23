@@ -1,6 +1,18 @@
 <?php 
 include "template/sidebar.php";
 include "template/header.php";
+
+$data_user = mysqli_query($host, "SELECT * FROM `user`") or die(mysqli_error($host));
+$jumlah_user = mysqli_num_rows($data_user);
+
+$data_artikel = mysqli_query($host, "SELECT * FROM `post` WHERE `jenis`='1'") or die(mysqli_error($host));
+$jumlah_artikel = mysqli_num_rows($data_artikel);
+
+$data_skripsi = mysqli_query($host, "SELECT * FROM `post` WHERE `jenis`='2'") or die(mysqli_error($host));
+$jumlah_skripsi = mysqli_num_rows($data_skripsi);
+
+$data_dokeng = mysqli_query($host, "SELECT * FROM `post` WHERE `jenis`='3'") or die(mysqli_error($host));
+$jumlah_dokeng = mysqli_num_rows($data_dokeng);
 ?>
 
                 <!-- Begin Page Content -->
@@ -22,7 +34,7 @@ include "template/header.php";
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Jumlah pengguna</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $jumlah_user ?></div>
                                         </div>
                                         <div class="col-auto">
                                         <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -40,7 +52,7 @@ include "template/header.php";
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Jumlah Artikel</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">356</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $jumlah_artikel ?></div>
                                         </div>
                                         <div class="col-auto">
                                         <i class="fas fa-newspaper fa-2x text-gray-300"></i>
@@ -58,7 +70,7 @@ include "template/header.php";
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 Jumlah Skripsi</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">356</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $jumlah_skripsi ?></div>
                                         </div>
                                         <div class="col-auto">
                                         <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
@@ -76,7 +88,7 @@ include "template/header.php";
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Jumlah Dokumen Engineering</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $jumlah_dokeng ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -97,7 +109,7 @@ include "template/header.php";
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Jumlah Artikel Bulanan</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Jumlah Dokumen Tersimpan Bulanan</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -229,6 +241,51 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
+// Monthly Data Database
+<?php
+// Artikel
+$data_post_jan = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 1 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_jan = mysqli_num_rows($data_post_jan);
+
+$data_post_feb = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 2 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_feb = mysqli_num_rows($data_post_feb);
+
+$data_post_mar = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 3 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_mar = mysqli_num_rows($data_post_mar);
+
+$data_post_apr = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 4 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_apr = mysqli_num_rows($data_post_apr);
+
+$data_post_may = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 5 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_may = mysqli_num_rows($data_post_may);
+
+$data_post_jun = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 6 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_jun = mysqli_num_rows($data_post_jun);
+
+$data_post_jul = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 7 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_jul = mysqli_num_rows($data_post_jul);
+
+$data_post_aug = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 8 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_aug = mysqli_num_rows($data_post_aug);
+
+$data_post_sep = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 9 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_sep = mysqli_num_rows($data_post_sep);
+
+$data_post_okt = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 10 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_okt = mysqli_num_rows($data_post_okt);
+
+$data_post_nov = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 11 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_nov = mysqli_num_rows($data_post_nov);
+
+$data_post_des = mysqli_query($host, "SELECT * FROM `post` WHERE MONTH(tgl_input) = 12 AND YEAR(tgl_input) = date('Y');") or die(mysqli_error($host));
+$jumlah_post_des = mysqli_num_rows($data_post_des);
+
+
+
+
+
+?>
+
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
@@ -248,7 +305,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+      data: [<?php echo $jumlah_post_jan . "," .  $jumlah_post_feb . "," .$jumlah_post_mar . "," .$jumlah_post_apr . "," .$jumlah_post_may . "," .$jumlah_post_jun . "," .$jumlah_post_jul . "," .$jumlah_post_aug . "," .$jumlah_post_sep . "," .$jumlah_post_okt . "," .$jumlah_post_nov . "," .$jumlah_post_des?>, ],
     }],
   },
   options: {

@@ -64,6 +64,14 @@ include 'template/header.php';
                 </div>
                 <div class="form-group row">
                     <label for="nama" class="col-sm-3
+                     col-form-label">Abstrak</label>
+                    <div class="col-sm-9">
+                        <textarea type="text" class="form-control" id="abstrak" name="abstrak" style="height:40vh">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nama" class="col-sm-3
                      col-form-label">Upload File</label>
                     <div class="col-sm-9">
                     <input type="file" name="file" size="50" />
