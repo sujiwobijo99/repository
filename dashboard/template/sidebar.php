@@ -1,5 +1,6 @@
 <?php
 include '../query.php';
+  $role = $_GET['role'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,20 +48,28 @@ include '../query.php';
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?id=<?php echo $id ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+            <?php 
+                if ($role==1) {
+                    echo "
+                    <!-- Nav Item - Dashboard -->
+                        <li class='nav-item active'>
+                            <a class='nav-link' href='index.php?id=$id&role=$role'>
+                                <i class='fas fa-fw fa-tachometer-alt'></i>
+                                <span>Dashboard</span></a>
+                        </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                        <!-- Divider -->
+                        <hr class='sidebar-divider'>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                User Management
-            </div>
+                        <!-- Heading -->
+                        <div class='sidebar-heading'>
+                            User Management
+                        </div>
+                    ";
+                }
+            ?>
+
+            
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -72,53 +81,103 @@ include '../query.php';
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Profile Management</h6>
-                        <a class="collapse-item" href="profil.php?id=<?php echo $id ?>">Lihat Profil</a>
-                        <a class="collapse-item" href="edit_profil.php?id=<?php echo $id ?>">Ubah Profil</a>
+                        <a class="collapse-item" href="profil.php?id=<?php echo $id . "&role=". $role  ?>">Lihat Profil</a>
+                        <a class="collapse-item" href="edit_profil.php?id=<?php echo $id . "&role=". $role ?>">Ubah Profil</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="ubah_pw.php?id=<?php echo $id ?>">
+                <a class="nav-link" href="ubah_pw.php?id=<?php echo $id . "&role=". $role  ?>">
                 <i class="fas fa-key"></i>
                 <span>Ganti Password</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+            <div class='sidebar-heading'>
+                Sistem Manajemen TA
+                </div> 
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Repository
-            </div>
-
-            <!-- Nav Item - Artikel -->
-            <li class="nav-item">
-                <a class="nav-link" href="artikel.php?id=<?php echo $id ?>">
-                <i class="fas fa-newspaper"></i>
+            <?php
+            if($role==1 or $role==2) {
+                   
+            echo " <!-- Nav Item - Artikel -->
+                    <li class='nav-item'>
+                        <a class='nav-link' href='artikel.php?id=$id&role=$role'>
+                        <i class='fas fa-lightbulb'></i>
+                        <span>Lihat Antrian Proposal</span></a>
+        
+                    <!-- Nav Item - Artikel -->
+                    <li class='nav-item'>
+                        <a class='nav-link' href='artikel.php?id=$id&role=$role'>
+                        <i class='fas fa-file-pdf'></i>
+                        <span>Lihat Antrian Dokumen</span></a>
+                    </li>
+                    
+                    <!-- Nav Item - Artikel -->
+            <li class='nav-item'>
+                <a class='nav-link' href='artikel.php?id=$id&role=$role'>
+                <i class='fas fa-newspaper'></i>
                 <span>Artikel</span></a>
             </li>
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="skripsi.php?id=<?php echo $id ?>">
-                <i class="fas fa-graduation-cap"></i>
+            <li class='nav-item'>
+                <a class='nav-link' href='skripsi.php?id= $id&role=$role'>
+                <i class='fas fa-graduation-cap'></i>
                     <span>Skripsi</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="dokeng.php?id=<?php echo $id ?>">
-                <i class="fas fa-book"></i>
+            <li class='nav-item'>
+                <a class='nav-link' href='dokeng.php?id= $id&role=$role'>
+                <i class='fas fa-book'></i>
                     <span>Dokumen Engineering</span></a>
             </li>
+                    "
+                    
+                    ;
+                }
             
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tambah_post.php?id=<?php echo $id ?>">
-                <i class="fas fa-plus"></i>
-                    <span>Tambah Dokumen</span></a>
-            </li>
+                if ($role==1) {
+                    echo "
+                    <!-- Nav Item - Tables -->
+                    <li class='nav-item'>
+                        <a class='nav-link' href='tambah_post.php?id=<?php echo $id . '&role='. $role  ?>'>
+                        <i class='fas fa-plus'></i>
+                            <span>Tambah Dokumen</span></a>
+                    </li>
+            ";
+                }
+
+                if ($role==3) {
+                    echo "
+                    <!-- Nav Item - Tables -->
+                    <li class='nav-item'>
+                        <a class='nav-link' href='status_ajuan.php?id=$id&role=$role'>
+                        <i class='fas fa-tasks'></i>
+                        <span>Status Ajuan</span></a>
+                    <!-- Nav Item - Tables -->
+                    <li class='nav-item'>
+                        <a class='nav-link' href='ajukan_riset.php?id=$id&role=$role'>
+                        <i class='fas fa-plus'></i>
+                            <span>Ajukan Ide Riset</span></a>
+                    </li>
+                    <!-- Nav Item - Tables -->
+                    <li class='nav-item'>
+                        <a class='nav-link' href='ajukan_dokumen.php?id=$id&role=$role'>
+                        <i class='fas fa-plus'></i>
+                            <span>Ajukan Dokumen</span></a>
+                    </li>
+                    ";
+                }
+            ?>
+
+
+
+            
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

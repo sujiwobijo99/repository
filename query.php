@@ -8,6 +8,7 @@ $query_mysql = mysqli_query($host, "SELECT * FROM `user` WHERE `id` LIKE '$id'")
 $data = mysqli_fetch_array($query_mysql);
 
 $id = $data['id'];
+$role = $data['role'];
 $nama = $data['nama'];
 $email = $data['email'];
 $password = $data['password'];

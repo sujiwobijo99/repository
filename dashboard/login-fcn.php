@@ -7,12 +7,13 @@ $query_mysql = mysqli_query($host, "SELECT * FROM `user` WHERE `email` LIKE '$em
 
 $data = mysqli_fetch_array($query_mysql);
 $id = $data['id'];
+$role = $data['role'];
 
 if (isset($id)) {
     if ($id == 1) {
-        header("location:index.php?id=$id");
+        header("location:index.php?id=$id&role=$role");
     } else {
-        header("location:profil.php?id=$id");
+        header("location:profil.php?id=$id&role=$role");
     }
     
 } else {
