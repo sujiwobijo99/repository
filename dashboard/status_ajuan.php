@@ -37,7 +37,7 @@ $query = mysqli_query($conn, "SELECT * FROM `proposal` WHERE `id_input` = $id  O
                                         <tr>
                                         <th>Nomor</th>
                                             <th>Judul</th>
-                                            <th>Penulis</th>
+                                            <th>Dosen Pembimbing</th>
                                             <th>Tanggal Upload</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
@@ -47,7 +47,7 @@ $query = mysqli_query($conn, "SELECT * FROM `proposal` WHERE `id_input` = $id  O
                                         <tr>
                                             <th>Nomor</th>
                                             <th>Judul</th>
-                                            <th>Penulis</th>
+                                            <th>Dosen Pembimbing</th>
                                             <th>Tanggal Upload</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
@@ -61,7 +61,40 @@ $query = mysqli_query($conn, "SELECT * FROM `proposal` WHERE `id_input` = $id  O
       <tr>
         <td><?php echo $nomor++; ?></td>
         <td><?php echo $data['judul']; ?></td>
-        <td><?php echo $data['penulis']; ?></td>
+        <td><?php
+        $dosbim = $data['pembimbing'];
+        switch($dosbim) {
+            case 1:
+                echo "Arnisa Stefanie, ST, MT.";
+                break;
+            case 2: 
+                echo "Dian Budhi Santoso, S.T., M.Eng.";
+                break;
+            case 3:
+                echo "Dr. Ir. Yuliarman Saragih, MT.";
+                break;
+            case 4:
+                echo "Ibrahim, ST, MT.";
+                break;
+            case 5:
+                echo "Insani Abdi Bangsa, ST., M.Sc";
+                break;
+            case 6:
+                echo "Ir. Lela Nurpulaela, MT.";
+                break;
+            case 7: 
+                echo "Rahmat Hidayat, A.Md.T, S.Pd., M.Pd";
+                break;
+            case 8:
+                echo "Reni Rahmadewi, ST, MT.";
+                break;
+            case 9:
+                echo "Ulinnuha Latifa, S.T., M.T.";
+                break;
+            default:
+                echo "Pembimbing tidak diketahui";
+        }
+        ?></td>
         <td><?php echo $data['tgl_input']; ?></td>
         <td><?php 
         if ($data['status']==0) {

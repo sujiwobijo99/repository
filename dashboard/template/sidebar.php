@@ -105,7 +105,7 @@ include '../query.php';
                    
             echo " <!-- Nav Item - Artikel -->
                     <li class='nav-item'>
-                        <a class='nav-link' href='artikel.php?id=$id&role=$role'>
+                        <a class='nav-link' href='antrian_proposal.php?id=$id&role=$role'>
                         <i class='fas fa-lightbulb'></i>
                         <span>Lihat Antrian Proposal</span></a>
         
@@ -124,14 +124,14 @@ include '../query.php';
             </li>
             <!-- Nav Item - Charts -->
             <li class='nav-item'>
-                <a class='nav-link' href='skripsi.php?id= $id&role=$role'>
+                <a class='nav-link' href='skripsi.php?id=$id&role=$role'>
                 <i class='fas fa-graduation-cap'></i>
                     <span>Skripsi</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class='nav-item'>
-                <a class='nav-link' href='dokeng.php?id= $id&role=$role'>
+                <a class='nav-link' href='dokeng.php?id=$id&role=$role'>
                 <i class='fas fa-book'></i>
                     <span>Dokumen Engineering</span></a>
             </li>
