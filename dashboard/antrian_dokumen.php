@@ -13,7 +13,7 @@ $conn = mysqli_connect($servername, $username, $password, $db_name);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-$query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 1 AND `status` = 1  ORDER BY `id`");
+$query = mysqli_query($conn, "SELECT * FROM `post` ORDER BY `status` AND `id`");
 ?>
 
 
@@ -21,8 +21,8 @@ $query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 1 AND `status
 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Artikel</h1>
-                    <p class="mb-4">Repository Artikel Teknik Elektro Unsika</p>
+                    <h1 class="h3 mb-2 text-gray-800">Antrian Dokumen</h1>
+                    <p class="mb-4">Antrian Dokumen Teknik Elektro Unsika</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -41,7 +41,9 @@ $query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 1 AND `status
                                             <th>Judul</th>
                                             <th>Penulis</th>
                                             <th>Tanggal Upload</th>
-                                            <th>Staff Input</th>
+                                            <th>Kontributor/Dosen Pembimbing</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
                                             <th>Dokumen</th>
                                         </tr>
                                     </thead>
@@ -51,7 +53,9 @@ $query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 1 AND `status
                                             <th>Judul</th>
                                             <th>Penulis</th>
                                             <th>Tanggal Upload</th>
-                                            <th>Staff Input</th>
+                                            <th>Kontributor/Dosen Pembimbing</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
                                             <th>Dokumen</th>
                                         </tr>
                                     </tfoot>
@@ -65,8 +69,71 @@ $query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 1 AND `status
         <td><?php echo $data['judul']; ?></td>
         <td><?php echo $data['penulis']; ?></td>
         <td><?php echo $data['tgl_input']; ?></td>
-        <td><?php echo $data['staf_input']; ?></td>
+        <?php
+            if ($role == 1) {
+                $pembimbing = $data['kontributor'];
+                switch($pembimbing){
+                    case 1:
+                        echo "<td>Arnisa Stefanie, ST, MT.</td>";
+                        break;
+                    case 2:
+                        echo "<td>Dian Budhi Santoso, S.T., M.Eng.</td>";
+                        break;
+                    case 3:
+                        echo "<td>Dr. Ir. Yuliarman Saragih, MT.</td>";
+                        break;
+                    case 4:
+                        echo "<td>Ibrahim, ST, MT.</td>";
+                        break;
+                    case 5:
+                        echo "<td>Insani Abdi Bangsa, ST., M.Sc</td>";
+                        break;
+                    case 6:
+                        echo "<td>Ir. Lela Nurpulaela, MT.</td>";
+                        break;
+                    case 7:
+                        echo "<td>Rahmat Hidayat, A.Md.T, S.Pd., M.Pd</td>";
+                        break;
+                    case 8:
+                        echo "<td>Reni Rahmadewi, ST, MT.</td>";
+                        break;
+                    case 9: 
+                        echo "<td>Ulinnuha Latifa, S.T., M.T.</td>";
+                        break;
+                    default:
+                        echo "<td>Ulinnuha Latifa, S.T., M.T.</td>";
+                        break;
+        
+                }
+            }
+            
+            
+            
+            ?></td>
+        <td><?php 
+            if ($data['status']==0) {
+                echo "<button type='button' class='btn btn-warning'>Menunggu</button>";
+            }else if ($data['status']==1) {
+                echo "<button type='button' class='btn btn-success'>Diterima</button>";
+            }else if ($data['status']==2) {
+                echo "<button type='button' class='btn btn-danger' >Ditolak</button>";
+            }
+            
+            ?></td>
         <td>
+            <?php 
+            $id_post = $data['id'];
+            if ($data['status']==0) {
+                echo "<a href='aksi_dokumen.php?id=$id&role=$role&id_prop=$id_post&pesan=1'><button type='button' class='btn btn-success'>Setujui</button></a>";
+                echo "<a href='aksi_dokumen.php?id=$id&role=$role&id_prop=$id_post&pesan=2'><button type='button' class='btn btn-danger'>Tolak</button></a>";
+            }else if ($data['status']==1) {
+                echo "<a href='aksi_dokumen.php?id=$id&role=$role&id_prop=$id_post&pesan=3'><button type='button' class='btn btn-success'>Batalkan Penerimaan</button></a>";
+            }else if ($data['status']==2) {
+                echo "<a href='aksi_dokumen.php?id=$id&role=$role&id_prop=$id_post&pesan=4'><button type='button' class='btn btn-danger' >Hapus List</button></a>";
+            }
+            
+            ?>
+            </td>        <td>
           <a href="post/<?php echo $data['path']; ?>"><button type="button" class="btn btn-success">Lihat</button></a>
           <a href="hapus_post.php?id=1&id_post=<?php echo $data['id']."&jenis=". $data['jenis']; ?>" onclick="return confirm ('Apakah anda benar ingin menghapus <?php echo $data['judul']; ?> dari daftar Artikel?')"><button type="button" class="btn btn-danger">Hapus</button></a>
         </td>

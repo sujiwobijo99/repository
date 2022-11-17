@@ -31,7 +31,7 @@ include 'template/header.php';
                     <label for="nama" class="col-sm-3
                      col-form-label">Dosen Pembimbing</label>
                     <div class="col-sm-9">
-                    <select class="form-control" name="cars" id="cars">
+                    <select class="form-control" name="dosbim" id="dosbim">
                         <option value="1">Arnisa Stefanie, ST, MT.</option>
                         <option value="2">Dian Budhi Santoso, S.T., M.Eng.</option>
                         <option value="3">Dr. Ir. Yuliarman Saragih, MT.</option>

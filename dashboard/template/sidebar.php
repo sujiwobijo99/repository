@@ -111,7 +111,7 @@ include '../query.php';
         
                     <!-- Nav Item - Artikel -->
                     <li class='nav-item'>
-                        <a class='nav-link' href='artikel.php?id=$id&role=$role'>
+                        <a class='nav-link' href='antrian_dokumen.php?id=$id&role=$role'>
                         <i class='fas fa-file-pdf'></i>
                         <span>Lihat Antrian Dokumen</span></a>
                     </li>
@@ -144,7 +144,7 @@ include '../query.php';
                     echo "
                     <!-- Nav Item - Tables -->
                     <li class='nav-item'>
-                        <a class='nav-link' href='tambah_post.php?id=<?php echo $id . '&role='. $role  ?>'>
+                        <a class='nav-link' href='tambah_post.php?id=$id&role=$role'>
                         <i class='fas fa-plus'></i>
                             <span>Tambah Dokumen</span></a>
                     </li>

@@ -16,6 +16,7 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder)) {
 // Upload to databses
 $file_name = $_FILES['file']['name'];
 $id = $_POST['id'];
+$role = $_POST['role'];
 $judul = $_POST['judul'];
 $penulis = $_POST['penulis'];
 $kontributor = $_POST['kontributor'];
@@ -39,16 +40,16 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `post`(`judul`, `penulis`, `kontributor`, `jenis`, `penerbit`, `subjek`, `keyword`, `staf_input`, `path`, `abstrak`, `tgl_input`)
-VALUES ('$judul', '$penulis', '$kontributor', '$jenis', '$penerbit', '$subjek', '$keyword', '$staf_input', '$file_name', '$abstrak', '$tgl_input')";
+$sql = "INSERT INTO `post`(`judul`, `penulis`, `kontributor`, `jenis`, `penerbit`, `subjek`, `keyword`, `staf_input`, `path`, `abstrak`, `tgl_input`, `status`)
+VALUES ('$judul', '$penulis', '$kontributor', '$jenis', '$penerbit', '$subjek', '$keyword', '$staf_input', '$file_name', '$abstrak', '$tgl_input', '1')";
 
 if (mysqli_query($conn, $sql)) {
   if ($jenis == 1) {  
-    header("Location: artikel.php?id=$id");
+    header("Location: artikel.php?id=$id&role=$role");
   }else if ($jenis == 2) {
-    header("Location: skripsi.php?id=$id");
+    header("Location: skripsi.php?id=$id&role=$role");
   }else {
-    header("Location: dokeng.php?id=$id");
+    header("Location: dokeng.php?id=$id&role=$role");
   }
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);

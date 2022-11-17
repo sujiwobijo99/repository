@@ -106,30 +106,30 @@ $next = $halaman + 1;
 if (isset($_GET['query']) && isset($_GET['jenis'])) {
     $query = $_GET['query'];
     $jenis = $_GET['jenis'];
-    $data2 = mysqli_query($host,  "SELECT * FROM `post` WHERE `judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%' AND `jenis`='$jenis'") or die(mysqli_error($host));
+    $data2 = mysqli_query($host,  "SELECT * FROM `post` WHERE `status`= 1 AND `jenis`='$jenis' AND (`judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%')") or die(mysqli_error($host));
     $jumlah_data = mysqli_num_rows($data2);
     $total_halaman = ceil($jumlah_data / $batas);
-    $query_mysql = mysqli_query($host,  "SELECT * FROM `post` WHERE `judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%' AND `jenis`='$jenis' LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
+    $query_mysql = mysqli_query($host,  "SELECT * FROM `post` WHERE `status`= 1 AND (`judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%') AND `jenis`='$jenis' LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
     $nomor =$halaman_awal+1;
 } else if (isset($_GET['query'])) {
     $query = $_GET['query'];
-    $data2 = mysqli_query($host,  "SELECT * FROM `post` WHERE `judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%'") or die(mysqli_error($host));
+    $data2 = mysqli_query($host,  "SELECT * FROM `post` WHERE `status`= 1 AND (`judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%')") or die(mysqli_error($host));
     $jumlah_data = mysqli_num_rows($data2);
     $total_halaman = ceil($jumlah_data / $batas);
-    $query_mysql = mysqli_query($host,  "SELECT * FROM `post` WHERE `judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%' LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
+    $query_mysql = mysqli_query($host,  "SELECT * FROM `post` WHERE `status`= 1 AND (`judul` LIKE '%$query%' OR `penulis` LIKE '%$query%' OR `keyword` LIKE '%$query%') LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
     $nomor =$halaman_awal+1;
 } else if (isset($_GET['jenis'])) {
     $jenis = $_GET['jenis'];
-    $data2 = mysqli_query($host, "SELECT * FROM `post` WHERE `jenis`='$jenis'") or die(mysqli_error($host));
+    $data2 = mysqli_query($host, "SELECT * FROM `post` WHERE `jenis`='$jenis' AND `status`= 1") or die(mysqli_error($host));
     $jumlah_data = mysqli_num_rows($data2);
     $total_halaman = ceil($jumlah_data / $batas);
-    $query_mysql = mysqli_query($host, "SELECT * FROM `post` WHERE `jenis`='$jenis' LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
+    $query_mysql = mysqli_query($host, "SELECT * FROM `post` WHERE `jenis`='$jenis' AND `status`= 1 LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
     $nomor =$halaman_awal+1;
 }else {
     $data2 = mysqli_query($host, "SELECT * FROM `post`") or die(mysqli_error($host));
     $jumlah_data = mysqli_num_rows($data2);
     $total_halaman = ceil($jumlah_data / $batas);
-    $query_mysql = mysqli_query($host, "SELECT * FROM `post` LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
+    $query_mysql = mysqli_query($host, "SELECT * FROM `post`  WHERE `status`= 1 LIMIT $halaman_awal, $batas") or die(mysqli_error($host));
     $nomor =$halaman_awal+1;
 }
    

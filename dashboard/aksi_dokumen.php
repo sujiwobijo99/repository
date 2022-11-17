@@ -21,20 +21,20 @@ if (!$conn) {
 
 
 if ($pesan == 1) {
-    $sql = "UPDATE `proposal` SET `status` = '1' WHERE `proposal`.`id` = $id_prop";
+    $sql = "UPDATE `post` SET `status` = '1' WHERE `post`.`id` = $id_prop";
 }else if ($pesan == 2) {
-    $sql = "UPDATE `proposal` SET `status` = '2' WHERE `proposal`.`id` = $id_prop";
+    $sql = "UPDATE `post` SET `status` = '2' WHERE `post`.`id` = $id_prop";
 }else if ($pesan == 3) {
-    $sql = "UPDATE `proposal` SET `status` = '0' WHERE `proposal`.`id` = $id_prop";
+    $sql = "UPDATE `post` SET `status` = '0' WHERE `post`.`id` = $id_prop";
 }else if ($pesan == 4) {
-    $sql = "DELETE FROM `proposal` WHERE `id` = $id_prop";
+    $sql = "DELETE FROM `post` WHERE `id` = $id_prop";
 }else {
-    $sql = "UPDATE `proposal` SET `status` = '1' WHERE `proposal`.`id` = $id_prop";
+    $sql = "UPDATE `post` SET `status` = '1' WHERE `post`.`id` = $id_prop";
 }
 
 
 if (mysqli_query($conn, $sql)) {
-    header("Location: antrian_proposal.php?id=$id&role=$role");
+    header("Location: antrian_dokumen.php?id=$id&role=$role");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

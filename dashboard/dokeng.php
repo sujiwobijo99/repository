@@ -12,7 +12,7 @@ $conn = mysqli_connect($servername, $username, $password, $db_name);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-$query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 3  ORDER BY `id`");
+$query = mysqli_query($conn, "SELECT * FROM `post` WHERE `jenis` = 3 AND `status` = 1  ORDER BY `id`");
 ?>
 
 <div class="container-fluid">
