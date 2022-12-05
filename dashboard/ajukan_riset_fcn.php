@@ -22,11 +22,11 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `proposal` (`judul`, `penulis`, `pembimbing`, `status`, `keyword`, `abstrak`, `tgl_input`)
-VALUES ('$judul', '$penulis', '$dosbim', 0, '$keyword', '$abstrak', '$tgl_input')";
+$sql = "INSERT INTO `proposal` (`judul`, `penulis`, `pembimbing`, `status`, `keyword`, `abstrak`, `tgl_input`, `id_input`)
+VALUES ('$judul', '$penulis', '$dosbim', 0, '$keyword', '$abstrak', '$tgl_input', '$id')";
 
 if (mysqli_query($conn, $sql)) {
-    header("Location: status__ajuan.php?id=$id&role=$role");
+    header("Location: status_ajuan.php?id=$id&role=$role");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

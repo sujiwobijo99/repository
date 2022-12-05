@@ -73,6 +73,14 @@ include '../query.php';
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+            <?php 
+                if ($role==1) {
+                    echo "<a class='nav-link collapsed' href='data_user.php?id=$id&role=$role'>
+                    <i class='fas fa-users'></i>
+                    <span>Data User</span>
+                </a>";
+                }
+                    ?>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-user"></i>

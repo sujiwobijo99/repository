@@ -40,8 +40,13 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `post`(`judul`, `penulis`, `kontributor`, `jenis`, `penerbit`, `subjek`, `keyword`, `staf_input`, `path`, `abstrak`, `tgl_input`, `status`)
+if ($role == 1) {
+  $sql = "INSERT INTO `post`(`judul`, `penulis`, `kontributor`, `jenis`, `penerbit`, `subjek`, `keyword`, `staf_input`, `path`, `abstrak`, `tgl_input`, `status`)
 VALUES ('$judul', '$penulis', '$kontributor', '$jenis', '$penerbit', '$subjek', '$keyword', '$staf_input', '$file_name', '$abstrak', '$tgl_input', '1')";
+} else {
+  $sql = "INSERT INTO `post`(`judul`, `penulis`, `kontributor`, `jenis`, `penerbit`, `subjek`, `keyword`, `staf_input`, `path`, `abstrak`, `tgl_input`, `status`)
+VALUES ('$judul', '$penulis', '$kontributor', '$jenis', '$penerbit', '$subjek', '$keyword', 'Mahasiswa', '$file_name', '$abstrak', '$tgl_input', '0')";
+}
 
 if (mysqli_query($conn, $sql)) {
   if ($jenis == 1) {  
