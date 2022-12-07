@@ -91,7 +91,7 @@ include '../koneksi.php';
                                 <td><?php if ($data['role'] == 1) {
                                         echo "Admin";
                                     } else if ($data['role'] == 2) {
-                                        echo "Guru";
+                                        echo "Dosen";
                                     } else {
                                         echo "Mahasiswa";
                                     }

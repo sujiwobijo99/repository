@@ -36,17 +36,18 @@ include '../koneksi.php';
                                 <div class="form-group row">
                                     <label for="pekerjaan" class="col-sm-3 col-form-label">NID</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="NID" name="NID" value="<?php echo $data['NID']; ?>">
+                                        <input type="text" class="form-control" id="nid" name="nid" value="<?php echo $data['NID']; ?>">
                                     </div>
-                                </div><div class="form-group row">
-                                    <label for="jenis_kelamin" class="col-sm-3
+                                </div>
+                                <div class="form-group row">
+                                    <label for="roleb" class="col-sm-3
                                     col-form-label">Role</label>
                                     <div class="col-sm-9">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                            <input type="radio" id="Admin" name="role" value="1">
-                                            <label for="lelaki">Admin</label><br>
+                                            <input type="radio" id="Admin" name="roleb" value="1">
+                                            <label for="admin">Admin</label><br>
                                             </div>
                                         </div>
                                         </div>
@@ -57,8 +58,8 @@ include '../koneksi.php';
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                            <input type="radio" id="Dosen" name="role" value="2">
-                                            <label for="rolea">Dosen</label><br>
+                                            <input type="radio" id="Dosen" name="roleb" value="2">
+                                            <label for="roleb">Dosen</label><br>
                                             </div>
                                         </div>
                                         </div>
@@ -69,8 +70,8 @@ include '../koneksi.php';
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                            <input type="radio" id="Mahasiswa" name="role" value="3">
-                                            <label for="rolea">Mahasiswa</label><br>
+                                            <input type="radio" id="Mahasiswa" name="roleb" value="3">
+                                            <label for="roleb">Mahasiswa</label><br>
                                             </div>
                                         </div>
                                         </div>

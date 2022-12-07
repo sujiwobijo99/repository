@@ -13,7 +13,7 @@ include '../query.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Repository TE Unsika - Dashboard</title>
+    <title>Sistem Manajemen Tugas Akhir TE Unsika - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link rel="icon" href="../dashboard/img/logo_unsika.png"  type="image/x-icon">
