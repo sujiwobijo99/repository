@@ -115,7 +115,7 @@ Skripsi
         <div class="row">
             <div class="col-lg-3" style="padding-right: 2vw;">
                 <h2 style="font-weight:600">Tentang</h2>
-                <h5 style="font-size:1rem; text-align:justify">Repository Tugas Akhir dan Dokumen Engineering Teknik Elektro Universitas Singaperbangsa Karawang</h5>
+                <h5 style="font-size:1rem; text-align:justify">Sistem Manajemen Tugas Akhir dan Dokumen Engineering Teknik Elektro Universitas Singaperbangsa Karawang</h5>
             </div>
             <div class="col-lg-4" style="padding-left: 0vw; padding-right: 5vw;">
                 <h2 style="text-align: left;font-weight:600">Informasi Kontak</h2>

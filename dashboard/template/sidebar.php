@@ -42,7 +42,7 @@ include '../query.php';
                     <!-- <i class="fas fa-university"></i> -->
                     <img src="img/logo_unsika.png" width="50rem" alt="">
                 </div>
-                <div class="sidebar-brand-text mx-3">Repository TE UNSIKA</div>
+                <div class="sidebar-brand-text mx-3">SMTA <br> TE UNSIKA</div>
             </a>
 
             <!-- Divider -->
